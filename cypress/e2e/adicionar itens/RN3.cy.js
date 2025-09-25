@@ -1,0 +1,11 @@
+ it.only('No rodapé deve ser incluido a quantidade de itens a serem resolvidos, e a opção de filtro (todos, ativos, concluídos', ()=>{
+    cy.get('[data-testid="text-input"]')
+      .type('compras', {delay: 170})
+      .press('Enter')
+    cy.get('[data-testid="footer"]')
+      .should('exist')
+    cy.contains('a','All')
+      .should('be.visible')
+    cy.contains('a','Active')
+      .should('be.visible')
+  })

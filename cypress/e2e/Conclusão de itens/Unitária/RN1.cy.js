@@ -1,0 +1,10 @@
+it('Quando eu clico no radio button ao lado do nome da tarefa, então a tarefa deve ser concluída', () => {
+    cy.get('[data-testid="text-input"]')
+        .type('compras{enter}')
+    cy.get('[data-testid="todo-item-toggle"]')
+        .first()
+        .click()
+     cy.get('[data-testid="todo-item"]')
+        .first()
+        .should('have.class', 'completed')
+})

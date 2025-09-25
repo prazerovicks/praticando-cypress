@@ -1,0 +1,10 @@
+it('Quando selecionado ele deve mostrar as tarefas concluídas e a serem feitas', () => {
+    cy.get('[data-testid="text-input"]')
+        .type('Compras{enter}',)
+        .type('Estudar{enter}')
+        .type('Academia{enter}')
+    cy.contains('[data-testid="footer-navigation"] a', 'All')
+        .should('have.class', 'selected')
+    cy.get('[data-testid="todo-item-label"]')
+        .should('be.visible')
+})

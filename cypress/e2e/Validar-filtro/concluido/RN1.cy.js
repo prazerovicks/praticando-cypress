@@ -1,0 +1,16 @@
+it('Quando clicado em filtro de completo, então deve ser exibido apenas os itens que foram concluídos', () => {
+    cy.get('[data-testid="text-input"]')
+        .type('compras{enter}')
+        .type('Estudar{enter}')
+
+    cy.get('[data-testid="todo-item-toggle"]')
+        .first()
+        .click()
+    cy.contains('[data-testid="footer-navigation"] a', 'Completed')
+        .click()
+        .should('have.class', 'selected')
+    cy.get('[data-testid="todo-list"] li')
+        .should('have.length', 1)
+        .and('have.class', 'completed')
+        .and('contain.text', 'compras')
+})

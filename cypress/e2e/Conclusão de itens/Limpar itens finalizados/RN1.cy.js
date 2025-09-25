@@ -1,0 +1,10 @@
+it('Ao concluir pelo menos uma tarefa o botão de concluir deve ser exibido', () => {
+    cy.get('[data-testid="text-input"]')
+        .type('compras{enter}')
+        .type('estudar{enter}')
+    cy.get('[data-testid="todo-item-toggle"]')
+        .first()
+        .click()
+    cy.get('.clear-completed')
+        .should('be.visible')
+})

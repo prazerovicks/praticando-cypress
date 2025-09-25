@@ -1,0 +1,11 @@
+it('Ter um botão no campo de input que irá finalizar todas as tarefas pendentes', () => {
+    cy.get('[data-testid="text-input"]')
+        .type('compras{enter}')
+        .type('estudar{enter}')
+        .type('academia{enter}')
+    cy.get('[data-testid="toggle-all"]')
+        .click()
+    cy.get('[data-testid="todo-item"]')
+        .first()
+        .should('have.class', 'completed')
+})
